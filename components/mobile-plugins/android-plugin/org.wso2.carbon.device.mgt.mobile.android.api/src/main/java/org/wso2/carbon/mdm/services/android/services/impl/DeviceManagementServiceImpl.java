@@ -27,7 +27,6 @@ import org.wso2.carbon.device.mgt.common.notification.mgt.NotificationManagement
 import org.wso2.carbon.device.mgt.common.operation.mgt.Operation;
 import org.wso2.carbon.device.mgt.common.operation.mgt.OperationManagementException;
 import org.wso2.carbon.device.mgt.core.operation.mgt.CommandOperation;
-import org.wso2.carbon.device.mgt.core.util.DeviceManagerUtil;
 import org.wso2.carbon.mdm.services.android.bean.ErrorResponse;
 import org.wso2.carbon.mdm.services.android.bean.wrapper.AndroidApplication;
 import org.wso2.carbon.mdm.services.android.bean.wrapper.AndroidDevice;
@@ -222,12 +221,12 @@ public class DeviceManagementServiceImpl implements DeviceManagementService {
                 List<DeviceIdentifier> deviceIdentifiers = new ArrayList<>();
                 deviceIdentifiers.add(new DeviceIdentifier(androidDevice.getDeviceIdentifier(), device.getType()));
 
-                 List<String> taskOperaions = new ArrayList<>();
-                 taskOperaions.add(AndroidConstants.OperationCodes.APPLICATION_LIST);
-                 taskOperaions.add(AndroidConstants.OperationCodes.DEVICE_INFO);
-                 taskOperaions.add(AndroidConstants.OperationCodes.DEVICE_LOCATION);
+                 List<String> taskOperations = new ArrayList<>();
+                 taskOperations.add(AndroidConstants.OperationCodes.APPLICATION_LIST);
+                 taskOperations.add(AndroidConstants.OperationCodes.DEVICE_INFO);
+                 taskOperations.add(AndroidConstants.OperationCodes.DEVICE_LOCATION);
 
-                for (String str : taskOperaions) {
+                for (String str : taskOperations) {
                     CommandOperation operation = new CommandOperation();
                     operation.setEnabled(true);
                     operation.setType(Operation.Type.COMMAND);
